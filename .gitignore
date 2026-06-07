@@ -1,0 +1,15 @@
+# Security
+.env
+
+# Virtual Environments
+crag-env/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Local Databases & State
+aura.db
+chroma_db/
