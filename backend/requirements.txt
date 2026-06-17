@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+langchain
+langchain-core
+langchain-openai
+langgraph
+langchain-chroma
+chromadb
+langchain-huggingface
+sentence-transformers
+tavily-python
+python-dotenv
+protobuf<=4.25.3
