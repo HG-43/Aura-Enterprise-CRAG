@@ -12,3 +12,6 @@ sentence-transformers
 tavily-python
 python-dotenv
 protobuf<=4.25.3
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
