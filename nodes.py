@@ -1,5 +1,4 @@
 from typing import Callable, Optional
-import streamlit as st
 from state import GraphState
 
 _stream_callback: Optional[Callable[[str], None]] = None
