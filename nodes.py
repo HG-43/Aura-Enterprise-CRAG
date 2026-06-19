@@ -18,12 +18,7 @@ from langchain_openai import OpenAIEmbeddings
 # GLOBAL INITIALIZATION (Runs once at startup)
 # ==========================================
 print("Loading embedding models into shared memory...")
-embeddings = OpenAIEmbeddings(
-    openai_api_base="https://openrouter.ai/api/v1",
-    openai_api_key=os.getenv("OPENROUTER_API_KEY"),
-    model="openai/text-embedding-3-small", # 100% Free model on OpenRouter!
-    check_embedding_ctx_length=False
-)
+embeddings = OpenAIEmbeddings(model_name="text-embedding-3-small")
 vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 print("Database index active!")
