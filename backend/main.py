@@ -20,9 +20,15 @@ app = FastAPI(
     version="1.0.0",
 )
 
+# Make sure to replace this placeholder string with your real live Vercel domain!
+VERCEL_FRONTEND_URL = "https://aura-intelligence-ui.vercel.app" 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL],
+    allow_origins=[
+        FRONTEND_URL,          # Keeps your local development setup working
+        VERCEL_FRONTEND_URL    # Authorizes your live production Vercel frontend
+    ],
     allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
