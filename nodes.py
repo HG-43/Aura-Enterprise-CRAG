@@ -11,13 +11,14 @@ def set_stream_callback(callback: Optional[Callable[[str], None]]) -> None:
 from config import grader_llm, generator_llm, tavily_client
 from langchain_core.prompts import PromptTemplate
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
+# from langchain_huggingface import HuggingFaceEmbeddings
 
 # ==========================================
 # GLOBAL INITIALIZATION (Runs once at startup)
 # ==========================================
 print("Loading embedding models into shared memory...")
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings = OpenAIEmbeddings(model_name="text-embedding-3-small")
 vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 print("Database index active!")

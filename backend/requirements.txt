@@ -1,23 +1,18 @@
-# Web Server
 fastapi
 uvicorn[standard]
 sqlalchemy
-
-# AI & Orchestration
 langchain
 langchain-core
 langchain-openai
 langgraph
-
-# Vector Database & Embeddings
 langchain-chroma
 chromadb
 langchain-huggingface
 sentence-transformers
-
-# Tools & Utilities
 tavily-python
 python-dotenv
-
-# Crucial Cloud Fix for ChromaDB
 protobuf<=4.25.3
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+email-validator
