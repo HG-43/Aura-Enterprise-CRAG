@@ -18,7 +18,12 @@ from langchain_openai import OpenAIEmbeddings
 # GLOBAL INITIALIZATION (Runs once at startup)
 # ==========================================
 print("Loading embedding models into shared memory...")
-embeddings = OpenAIEmbeddings(model_name="text-embedding-3-small")
+embeddings = OpenAIEmbeddings(
+    openai_api_base="https://openrouter.ai/api/v1",
+    openai_api_key=os.getenv("OPENROUTER_API_KEY"),
+    model="nvidia/llama-nemotron-embed-vl-1b-v2:free", # 100% Free model on OpenRouter!
+    check_embedding_ctx_length=False
+)
 vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 print("Database index active!")
